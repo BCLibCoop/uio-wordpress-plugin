@@ -16,7 +16,7 @@ $(document).ready(function () {
     var tocPlaceholder = "<div class='flc-toc-tocContainer toc'> </div>";
     var uioTemplateSpec = {
         uioTemplate : {
-            url : phpData.pluginUrl + "template.html"
+            url : uioData.pluginUrl + "template.html"
         }
     };
 
@@ -24,10 +24,10 @@ $(document).ready(function () {
     fluid.fetchResources(uioTemplateSpec, function (spec) {
 
         // Add the sliding panel template to the page
-        $(phpData.uioTemplateSelector).prepend(spec.uioTemplate.resourceText);
+        $(uioData.uioTemplateSelector).prepend(spec.uioTemplate.resourceText);
 
         // Add the table of contents placeholder to the page
-        $(phpData.uioTocSelector).prepend(tocPlaceholder);
+        $(uioData.uioTocSelector).prepend(tocPlaceholder);
 
         // Create the prefs editor
         fluid.uiOptions(".flc-prefsEditor-separatedPanel", {
@@ -44,13 +44,13 @@ $(document).ready(function () {
             ],
             auxiliarySchema: {
                 terms: {
-                    templatePrefix: phpData.pluginUrl + "lib/infusion/src/framework/preferences/html",
-                    messagePrefix: phpData.pluginUrl + "lib/infusion/src/framework/preferences/messages",
+                    templatePrefix: uioData.pluginUrl + "lib/infusion/src/framework/preferences/html",
+                    messagePrefix: uioData.pluginUrl + "lib/infusion/src/framework/preferences/messages",
                 },
                 "fluid.prefs.tableOfContents": {
                     enactor: {
-                        tocTemplate: phpData.pluginUrl + "lib/infusion/src/components/tableOfContents/html/TableOfContents.html",
-                        tocMessage: phpData.pluginUrl + "lib/infusion/src/framework/preferences/messages/tableOfContents-enactor.json",
+                        tocTemplate: uioData.pluginUrl + "lib/infusion/src/components/tableOfContents/html/TableOfContents.html",
+                        tocMessage: uioData.pluginUrl + "lib/infusion/src/framework/preferences/messages/tableOfContents-enactor.json",
                         ignoreForToC: {
                             overviewPanel: ".flc-overviewPanel",
                         },
@@ -59,7 +59,7 @@ $(document).ready(function () {
                 "fluid.prefs.syllabification": {
                     enactor: {
                         terms: {
-                            patternPrefix: phpData.pluginUrl + "lib/infusion/src/lib/hypher/patterns"
+                            patternPrefix: uioData.pluginUrl + "lib/infusion/src/lib/hypher/patterns"
                         }
                     }
                 }

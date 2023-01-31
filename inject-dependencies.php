@@ -17,24 +17,23 @@
  */
 function uio_styles_scripts() {
 	/* Add the CSS files to the header */
-	wp_enqueue_style( 'normalize', UIO_PLUGIN_URL . 'lib/infusion/src/lib/normalize/css/normalize.css', false, UIO_LIBRARY_VERSION );
-	wp_enqueue_style( 'fluid', UIO_PLUGIN_URL . 'lib/infusion/src/framework/core/css/fluid.css', false, UIO_LIBRARY_VERSION );
-	wp_enqueue_style( 'Enactors', UIO_PLUGIN_URL . 'lib/infusion/src/framework/preferences/css/Enactors.css', false, UIO_LIBRARY_VERSION );
-	wp_enqueue_style( 'PrefsEditor', UIO_PLUGIN_URL . 'lib/infusion/src/framework/preferences/css/PrefsEditor.css', false, UIO_LIBRARY_VERSION );
-	wp_enqueue_style( 'SeparatedPanelPrefsEditor', UIO_PLUGIN_URL . 'lib/infusion/src/framework/preferences/css/SeparatedPanelPrefsEditor.css', false, UIO_LIBRARY_VERSION );
-	wp_enqueue_style( 'uio', UIO_PLUGIN_URL . 'uio.css', false, UIO_PLUGIN_VERSION );
+	wp_register_style( 'fluid', UIO_PLUGIN_URL . 'lib/infusion/src/framework/core/css/fluid.css', array(), UIO_LIBRARY_VERSION );
+	wp_register_style( 'Enactors', UIO_PLUGIN_URL . 'lib/infusion/src/framework/preferences/css/Enactors.css', array(), UIO_LIBRARY_VERSION );
+	wp_register_style( 'PrefsEditor', UIO_PLUGIN_URL . 'lib/infusion/src/framework/preferences/css/PrefsEditor.css', array(), UIO_LIBRARY_VERSION );
+	wp_register_style( 'SeparatedPanelPrefsEditor', UIO_PLUGIN_URL . 'lib/infusion/src/framework/preferences/css/SeparatedPanelPrefsEditor.css', array(), UIO_LIBRARY_VERSION );
+	wp_enqueue_style( 'uio', UIO_PLUGIN_URL . 'uio.css', array( 'fluid', 'Enactors', 'PrefsEditor', 'SeparatedPanelPrefsEditor' ), UIO_PLUGIN_VERSION );
 
 	/* Add the JS files to the header */
-	wp_enqueue_script( 'infusion', UIO_PLUGIN_URL . 'lib/infusion/infusion-uiOptions.js', false, UIO_LIBRARY_VERSION, false );
-	wp_enqueue_script( 'uio', UIO_PLUGIN_URL . 'uio.js', array( 'jquery' ), UIO_PLUGIN_VERSION, false );
+	wp_register_script( 'infusion', UIO_PLUGIN_URL . 'lib/infusion/infusion-uiOptions.js', array(), UIO_LIBRARY_VERSION, false );
+	wp_enqueue_script( 'uio', UIO_PLUGIN_URL . 'uio.js', array( 'jquery', 'infusion' ), UIO_PLUGIN_VERSION, false );
 
 	/* Expose PHP data via JavaScript */
-	$php_data = array(
+	$uio_data = array(
 		'pluginUrl'           => UIO_PLUGIN_URL,
 		'uioTemplateSelector' => get_option( 'uio_template_selector', 'body' ),
-		'uioTocSelector'      => get_option( 'uio_toc_selector', '#main' ),
+		'uioTocSelector'      => get_option( 'uio_toc_selector', '#primary' ),
 	);
-	wp_localize_script( 'uio', 'phpData', $php_data );
+	wp_localize_script( 'uio', 'uioData', $uio_data );
 }
 
-add_action( 'wp_enqueue_scripts', 'uio_styles_scripts' );
+add_action( 'wp_enqueue_scripts', 'uio_styles_scripts', 100 );

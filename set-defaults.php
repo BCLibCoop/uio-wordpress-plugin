@@ -20,6 +20,6 @@ function uio_set_defaults() {
 		update_option( 'uio_template_selector', 'body' );
 	}
 	if ( ! get_option( 'uio_toc_selector' ) ) {
-		update_option( 'uio_toc_selector', '#main' );
+		update_option( 'uio_toc_selector', '#primary' );
 	}
 }
