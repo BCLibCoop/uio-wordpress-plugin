@@ -3,7 +3,7 @@
  * Plugin Name: User Interface Options
  * Plugin URI: http://github.com/fluid-project/uio-wordpress-plugin
  * Description: Adds the Infusion User Interface Options component to the site
- * Version: 0.3
+ * Version: 0.4
  * Author: Floe Project
  * Author URI: http://floeproject.org
  * License: New BSD license or the Educational Community License, Version 2.0
@@ -24,8 +24,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( 'No script kiddies please!' );
 }
 
-define( 'UIO_LIBRARY_VERSION', '4612ab559ec9610b5fe22eb43c9af041ced82ab0' );
-define( 'UIO_PLUGIN_VERSION', 0.3 );
+define( 'UIO_LIBRARY_VERSION', '5b0457bee2c1608ecf5a6efed12826374323a2b0' );
+define( 'UIO_PLUGIN_VERSION', 0.4 );
 define( 'UIO_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'UIO_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 
