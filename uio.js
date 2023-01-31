@@ -16,7 +16,7 @@ $(document).ready(function () {
     var tocPlaceholder = "<div class='flc-toc-tocContainer toc'> </div>";
     var uioTemplateSpec = {
         uioTemplate : {
-            href : phpData.pluginUrl + "template.html"
+            url : phpData.pluginUrl + "template.html"
         }
     };
 
@@ -30,12 +30,43 @@ $(document).ready(function () {
         $(phpData.uioTocSelector).prepend(tocPlaceholder);
 
         // Create the prefs editor
-        fluid.uiOptions.prefsEditor(".flc-prefsEditor-separatedPanel", {
-            terms: {
-                "templatePrefix": phpData.pluginUrl + "lib/infusion/src/framework/preferences/html",
-                "messagePrefix": phpData.pluginUrl + "lib/infusion/src/framework/preferences/messages"
+        fluid.uiOptions(".flc-prefsEditor-separatedPanel", {
+            preferences: [
+                "fluid.prefs.textSize",
+                "fluid.prefs.lineSpace",
+                "fluid.prefs.textFont",
+                "fluid.prefs.contrast",
+                "fluid.prefs.tableOfContents",
+                "fluid.prefs.enhanceInputs",
+                "fluid.prefs.letterSpace",
+                "fluid.prefs.wordSpace",
+                "fluid.prefs.syllabification",
+            ],
+            auxiliarySchema: {
+                terms: {
+                    templatePrefix: phpData.pluginUrl + "lib/infusion/src/framework/preferences/html",
+                    messagePrefix: phpData.pluginUrl + "lib/infusion/src/framework/preferences/messages",
+                },
+                "fluid.prefs.tableOfContents": {
+                    enactor: {
+                        tocTemplate: phpData.pluginUrl + "lib/infusion/src/components/tableOfContents/html/TableOfContents.html",
+                        tocMessage: phpData.pluginUrl + "lib/infusion/src/framework/preferences/messages/tableOfContents-enactor.json",
+                        ignoreForToC: {
+                            overviewPanel: ".flc-overviewPanel",
+                        },
+                    }
+                },
+                "fluid.prefs.syllabification": {
+                    enactor: {
+                        terms: {
+                            patternPrefix: phpData.pluginUrl + "lib/infusion/src/lib/hypher/patterns"
+                        }
+                    }
+                }
             },
-            "tocTemplate": phpData.pluginUrl + "lib/infusion/src/components/tableOfContents/html/TableOfContents.html"
+            prefsEditorLoader: {
+                lazyLoad: true,
+            },
         });
     });
 });
