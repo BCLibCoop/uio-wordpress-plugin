@@ -25,7 +25,7 @@ function uio_styles_scripts() {
 
 	/* Add the JS files to the header */
 	wp_register_script( 'infusion', UIO_PLUGIN_URL . 'lib/infusion/infusion-uiOptions.js', array(), UIO_LIBRARY_VERSION, false );
-	wp_enqueue_script( 'uio', UIO_PLUGIN_URL . 'uio.js', array( 'jquery', 'infusion' ), UIO_PLUGIN_VERSION, false );
+	wp_enqueue_script( 'uio', UIO_PLUGIN_URL . 'uio.js', array( 'jquery', 'jquery-ui-core', 'infusion' ), UIO_PLUGIN_VERSION, false );
 
 	/* Expose PHP data via JavaScript */
 	$uio_data = array(

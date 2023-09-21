@@ -11,7 +11,7 @@
  * @package User_Interface_Options
  */
 
-$(document).ready(function () {
+jQuery(document).ready(function ($) {
 
     var tocPlaceholder = "<div class='flc-toc-tocContainer toc'> </div>";
     var uioTemplateSpec = {
