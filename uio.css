@@ -5,7 +5,9 @@
 }
 
 /* Fix issues with Safari floats */
-@media screen and (min-width: 40em) .fl-prefsEditor-separatedPanel .fl-panelBar.fl-panelBar-wideScreen {
-    position: absolute;
-    background-color: transparent;
+@media screen and (min-width: 40em) {
+    .fl-prefsEditor-separatedPanel .fl-panelBar.fl-panelBar-wideScreen {
+        position: absolute;
+        background-color: transparent;
+    }
 }
