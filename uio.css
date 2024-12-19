@@ -1,13 +1,1 @@
-/* set position and z-index to work with Wordpress's twenty seventeen theme */
-.fl-prefsEditor-separatedPanel {
-    position: relative;
-    z-index: 10;
-}
-
-/* Fix issues with Safari floats */
-@media screen and (min-width: 40em) {
-    .fl-prefsEditor-separatedPanel .fl-panelBar.fl-panelBar-wideScreen {
-        position: absolute;
-        background-color: transparent;
-    }
-}
+/* Style Overrides */
