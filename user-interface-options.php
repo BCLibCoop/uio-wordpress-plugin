@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'UIO_LIBRARY_VERSION', 'c02f89ed971b880fc4bed680d5c49c117d7939cb' );
-define( 'UIO_PLUGIN_VERSION', '0.5.2' );
+define( 'UIO_PLUGIN_VERSION', '0.5.3' );
 define( 'UIO_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'UIO_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 
