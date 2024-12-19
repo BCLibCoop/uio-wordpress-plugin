@@ -18,10 +18,12 @@
 function uio_styles_scripts() {
 	/* Add the CSS files to the header */
 	wp_register_style( 'fluid', UIO_PLUGIN_URL . 'lib/infusion/src/framework/core/css/fluid.css', array(), UIO_LIBRARY_VERSION );
+	wp_style_add_data( 'fluid', 'path', UIO_PLUGIN_DIR . 'lib/infusion/src/framework/core/css/fluid.css' );
 	wp_register_style( 'Enactors', UIO_PLUGIN_URL . 'lib/infusion/src/framework/preferences/css/Enactors.css', array(), UIO_LIBRARY_VERSION );
 	wp_register_style( 'PrefsEditor', UIO_PLUGIN_URL . 'lib/infusion/src/framework/preferences/css/PrefsEditor.css', array(), UIO_LIBRARY_VERSION );
 	wp_register_style( 'SeparatedPanelPrefsEditor', UIO_PLUGIN_URL . 'lib/infusion/src/framework/preferences/css/SeparatedPanelPrefsEditor.css', array(), UIO_LIBRARY_VERSION );
 	wp_enqueue_style( 'uio', UIO_PLUGIN_URL . 'uio.css', array( 'fluid', 'Enactors', 'PrefsEditor', 'SeparatedPanelPrefsEditor' ), UIO_PLUGIN_VERSION );
+	wp_style_add_data( 'uio', 'path', UIO_PLUGIN_DIR . 'uio.css' );
 
 	/* Add the JS files to the header */
 	wp_register_script( 'infusion', UIO_PLUGIN_URL . 'lib/infusion/infusion-uiOptions.js', array(), UIO_LIBRARY_VERSION, false );
